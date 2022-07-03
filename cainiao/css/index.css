@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  font: normal 400 16px 楷体;
+  font: 16px 楷体;
 }
 a {
   text-decoration: none;
@@ -39,17 +39,16 @@ body {
 }
 .nav {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 38px;
   background-color: #96b97d;
   color: #ffffff;
 }
+.nav a {
+  margin-left: 14px;
+}
 .nav .headpage {
   margin-left: 302px;
-}
-.nav .mark {
-  margin-right: 992px;
 }
 .pannel {
   display: flex;
@@ -94,4 +93,12 @@ body {
   width: 308px;
   height: 92px;
   background-color: #f6f6f6;
+}
+.pannel .cause .cause1 ul li div {
+  display: flex;
+  margin-top: 16px;
+}
+.pannel .cause .cause1 ul li div img {
+  display: block;
+  margin-top: 6px;
 }

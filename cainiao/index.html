@@ -51,19 +51,31 @@
             <hr>
             <ul>
             <li><p>学习HTML</p>
-            <p>eeeeeeeeeeeeeeeeeeeeeeee</p></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <div>
+            <img src="./images/tag1.png" alt="">
+            <strong>HTML，即超文本标记语言（Hyper Text Markup Language）<strong>
+        </div></li>
+            
+     
+
             </ul>
             </div>
     </div>
 </div>
 
+
+
+
+<script>
+    document.body.addEventListener("click",fun);
+    var aa=document.querySelector(".pannel").querySelector(".cause").querySelector(".cause1").querySelector("ul").querySelector("li");
+    var bb=document.querySelector(".pannel").querySelector(".cause").querySelector(".cause1").querySelector("ul");
+    function fun(){
+        ss=aa.cloneNode(true);
+        var tt=bb.appendChild(ss);
+     
+        
+    }
+</script>
 </body>
 </html>
