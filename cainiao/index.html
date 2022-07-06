@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css">
+    <script src="js/jquery.js"></script>
 </head>
 <body>
 <div class="heads">
@@ -30,7 +31,7 @@
 <div class="wrapper pannel">
     <div class="menu">
         <dl>
-            <dt>全部教程</dt>
+            <dt id="sss">全部教程</dt>
             <dd>HTML/CSS</dd>
             <dd>JavaScript</dd>
             <dd>服务端</dd>
@@ -64,18 +65,36 @@
 </div>
 
 
+<script>
+    $(function (){
+        $("#sss").on("click",function(){
+            $.ajax({
+                type:'POST',
+                url:"http://127.0.0.1:3007/api/reguser",
+                data:{'username':"xiaoyu",
+                        'password':6666},
+                        success:function(res){
+                            console.log(res)
+                        }
+            })
+        })
 
+
+
+    })
+</script>
 
 <script>
-    document.body.addEventListener("click",fun);
-    var aa=document.querySelector(".pannel").querySelector(".cause").querySelector(".cause1").querySelector("ul").querySelector("li");
+      var aa=document.querySelector(".pannel").querySelector(".cause").querySelector(".cause1").querySelector("ul").querySelector("li");
     var bb=document.querySelector(".pannel").querySelector(".cause").querySelector(".cause1").querySelector("ul");
-    function fun(){
+
+    document.body.addEventListener("keydown",function(e){
+        if (e.keyCode==65){
         ss=aa.cloneNode(true);
         var tt=bb.appendChild(ss);
-     
+        }});
         
-    }
+    
 </script>
 </body>
 </html>
