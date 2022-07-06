@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<div class="heads">
+    <div class="logo">
+        <img class="imgs" src="./images/logo.png" alt="加载失败">
+    </div>
+    <div class="search">
+        <input type="text" >
+
+    </div>
+</div>
+<div class="nav">
+    <a class="headpage">首页</a>
+    <a class="tool">菜鸟工具</a>
+    <a class="note">菜鸟笔记</a>
+    <a class="book">参考手册</a>
+    <a class="usernote">用户笔记</a>
+    <a class="test">测验/考试</a>
+    <a class="mark">本地书签</a>
+</div>
+
+<div class="wrapper pannel">
+    <div class="menu">
+        <dl>
+            <dt id="sss">全部教程</dt>
+            <dd>HTML/CSS</dd>
+            <dd>JavaScript</dd>
+            <dd>服务端</dd>
+            <dd>数据库</dd>
+            <dd>数据分析</dd>
+            <dd>移动端</dd>
+            <dd>XML教程</dd>
+            <dd>ASP.NET</dd>
+            <dd>Web Service</dd>
+            <dd>开发工具</dd>
+            <dd>网站建设</dd>
+        </dl>
+
+    </div>
+    <div class="cause">
+        <div class="cause1">
+            <span>HTML/CSS</span>
+            <hr>
+            <ul>
+            <li><p>学习HTML</p>
+            <div>
+            <img src="./images/tag1.png" alt="">
+            <strong>HTML，即超文本标记语言（Hyper Text Markup Language）<strong>
+        </div></li>
+            
+     
+
+            </ul>
+            </div>
+    </div>
+</div>
+
+
+<script>
+    $(function (){
+        $("#sss").on("click",function(){
+            $.ajax({
+                type:'POST',
+                url:"http://127.0.0.1:3007/api/reguser",
+                data:{'username':"xiaoyu",
+                        'password':6666},
+                        success:function(res){
+                            console.log(res)
+                        }
+            })
+        })
+
+
+
+    })
+</script>
+
+<script>
+      var aa=document.querySelector(".pannel").querySelector(".cause").querySelector(".cause1").querySelector("ul").querySelector("li");
+    var bb=document.querySelector(".pannel").querySelector(".cause").querySelector(".cause1").querySelector("ul");
+
+    document.body.addEventListener("keydown",function(e){
+        if (e.keyCode==65){
+        ss=aa.cloneNode(true);
+        var tt=bb.appendChild(ss);
+        }});
+        
+    
+</script>
+</body>
+</html>
