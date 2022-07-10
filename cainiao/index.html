@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/index.css">
-    <script src="./jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
+<body id="sss">
 <div class="heads">
     <div class="logo">
         <img class="imgs" src="./images/logo.png" alt="加载失败">
@@ -31,7 +31,7 @@
 <div class="wrapper pannel">
     <div class="menu">
         <dl>
-            <dt id="sss">全部教程</dt>
+            <dt>全部教程</dt>
             <dd>HTML/CSS</dd>
             <dd>JavaScript</dd>
             <dd>服务端</dd>
@@ -62,26 +62,87 @@
             </ul>
             </div>
     </div>
+
+
+
+
+
+
+
+
+
+</div>
+
+<div id="load">
+    <div id="load_content">
+        <div id="content">
+            <div id="loads">登录</div>
+            <p id="word">每一次登录都是与你的邂逅。</p>
+            <form id="menu" action="./">
+                <input type="text" id="user" class="us-pas" name="username"><br>
+                <input type="text" id="pass" class="us-pas" name="password"><br>
+                <input type="radio" name="" id="remember" name="attitude">记住密码
+                <span>忘记密码/注册</span>
+                <input type="submit" value="登录" id="load-message">
+
+            </form>
+
+
+
+        </div>
+
+    </div>
 </div>
 
 
+
+
 <script>
+
+
+
+
+
     $(function (){
-        $("#sss").on("click",function(){
-            $.ajax({
-                type:'POST',
-                url:"http://127.0.0.1:3007/api/reguser",
-                data:{'username':"xiaoyu",
-                        'password':6666},
-                        success:function(res){
-                            console.log(res)
-                        }
-            })
-        })
 
+        $("#load").on("mousedown",function(e){
+        console.log(111111111)
+         $("#load-content").left=700+'px'
 
+     
 
     })
+
+    //     $("#menu").submit("click",function(e){
+    //         e.preventDefault()
+
+    //         var data=$(this).serialize()
+    //         console.log(data)
+
+    //         var p1=/username=([a-zA-Z0-9]+)&password=/
+    //         var p2=/&password=([a-zA-Z0-9]+)/
+           
+    //         un=(p1.exec(data))
+    //         up=(p2.exec(data))
+            
+
+    //         $.ajax({
+    //             type:'POST',
+    //             url:"http://127.0.0.1:3007/api/reguser",
+    //             data:{'username':un[1],
+    //                     'password':up[1]},
+    //                     success:function(res){
+    //                         console.log(res)
+    //                     }
+    //         })
+    //      })
+
+
+
+    // }
+    
+    }
+    )
 </script>
 
 <script>
