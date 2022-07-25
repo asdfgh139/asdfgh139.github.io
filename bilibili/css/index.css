@@ -1,0 +1,120 @@
+.head_banner {
+  background: url('../images/head_back.png') no-repeat;
+  background-size: 100%;
+  height: 180px;
+}
+.head_banner .menu ul li {
+  display: inline-block;
+  color: white;
+  font-size: 14px;
+  line-height: 64px;
+  margin-right: 16px;
+}
+.head_banner ul:nth-child(1) {
+  margin-left: 22px;
+}
+.head_banner .menu,
+.head_banner .searchs {
+  float: left;
+}
+.head_banner .searchs {
+  margin-left: 200px;
+}
+.head_banner input {
+  width: 450px;
+  height: 34px;
+  margin-top: 12px;
+  border-radius: 6px;
+  border: 1px #cecfd1 solid;
+  background-color: #dbdfe4;
+  font-size: 14px;
+  line-height: 34px;
+  text-indent: 14px;
+}
+.head_banner .myid {
+  float: right;
+  margin-top: 10px;
+}
+.head_banner .myid li {
+  display: inline-block;
+  margin-left: 16px;
+  line-height: 30px;
+  text-align: center;
+  color: white;
+}
+.head_banner .myid li .iconfont {
+  font-size: 20px;
+  line-height: 20px;
+}
+.head_banner .myid li .texts {
+  font-size: 14px;
+  line-height: 14px;
+}
+.head_banner .myid li .tougao {
+  width: 80px;
+  height: 30px;
+  margin-right: 22px;
+  border-radius: 5px;
+  background-color: #fb7299;
+  align-content: center;
+}
+.head_banner .myid li img {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+}
+.pannel {
+  width: 1570px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.pannel .public .ll {
+  margin-right: 22px;
+  color: pink;
+  width: 42px;
+  float: left;
+  text-align: center;
+}
+.pannel .menu {
+  margin-left: 40px;
+  width: 1108px;
+  float: left;
+}
+.pannel .menu li {
+  display: inline-block;
+  width: 80px;
+  height: 28px;
+  margin-right: 6px;
+  margin-bottom: 10px;
+  border: 1px solid #f1f2f3;
+  border-radius: 3px;
+  background-color: #f6f7f8;
+  text-align: center;
+  line-height: 28px;
+}
+.pannel .menu ul :nth-child(12n) {
+  margin-right: 0px;
+}
+.pannel .video_01 .m1 {
+  width: 618px;
+  height: 420px;
+  border-radius: 6px;
+}
+.pannel .video_01 .m2 {
+  width: 300px;
+  height: 170px;
+  border-radius: 6px;
+}
+.pannel .video_01 .d1 {
+  float: left;
+}
+.pannel .video_01 .d2 {
+  width: 900px;
+  float: left;
+  margin-left: 18px;
+}
+.pannel .video_01 .d2 li {
+  width: 300px;
+  height: 224px;
+  float: left;
+}
