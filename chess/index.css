@@ -1,8 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .game {
   position: relative;
 }
 .chess_box {
   width: 800px;
+  height: 900px;
   margin: 100px;
 }
 .chess_enum {
@@ -17,4 +22,15 @@
 }
 .chess_enum:hover {
   border: 3px red solid;
+}
+.back {
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 30px;
+  background-color: pink;
+  left: 1000px;
+  top: 300px;
 }
