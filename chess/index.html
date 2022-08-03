@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div class="game">
+        <img class="chess_box" src="images/desk.png" alt="err">
+        <div class="chess_enum" id="100" style="display: none;"></div>
+
+    </div>
+
+
+    <script>
+
+        $(function () {
+            var game = document.querySelector('.game')
+            var chess_enum = document.querySelector('.chess_enum')
+
+
+            var chesses = []
+            var kinds = [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 6,
+                0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 6]
+            p_x = [4, 3, 5, 2, 6, 1, 7, 0, 8, 1, 7, 0, 2, 4, 6, 8, 4, 3, 5, 2, 6, 1, 7, 0, 8, 1, 7, 0, 2, 4, 6, 8]
+            p_y = [9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 6, 6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3]
+
+
+
+
+
+
+            var chesses = []
+            for (i in kinds) {
+                var chess_en = {
+                    mid: i,
+                    kind: kinds[i],
+                    x: -100 * i,
+                    y: -Math.trunc(i / 16)*100,
+                    l: p_x[i] * 100 + 50,
+                    t: p_y[i] * 100 + 50,
+                    life: 1,
+                    status: 0
+                }
+                
+                chesses.push(chess_en)
+                var chess = chess_enum.cloneNode(true)
+                chess.className = "chess_enum"
+                chess.id = i
+                game.appendChild(chess)
+
+                $(chess).css('background-position-x', chesses[kinds[i]].x)
+                $(chess).css('background-position-y', chesses[i].y)
+                $(chess).css('left', String(chesses[i].l) + 'px')
+                $(chess).css('top', String(chesses[i].t) + 'px')
+                $(chess).css('display', 'block')
+
+                $(chess).click(function(e){
+                    sid=e.target.id
+                    for(ii in chesses){
+                        if(chesses[ii].status==1){return}
+                    }
+                    setTimeout(function(){
+                        chesses[sid].status=1
+                    },100)
+                    
+                })
+  
+            }
+
+                $(document.body).click(function(e){
+                        for(i in chesses){
+                            if(chesses[i].status==1){
+                                console.log(chesses[i].mid)
+                                chesses[i].status=0
+                                let m_x=Math.trunc((e.pageX-50)/100)
+                                let m_y=Math.trunc((e.pageY-50)/100)
+                                let t_x=Math.trunc((e.pageX-50)/100)*100+50
+                                let t_y=Math.trunc((e.pageY-50)/100)*100+50
+                                $('#'+String(i)).css("left",String(t_x)+"px")
+                                $('#'+String(i)).css("top",String(t_y)+"px")
+                                console.log(m_x)
+                                for(ii in p_x){
+                                    if(p_x[ii]==m_x & p_y[ii]==m_y & ii != i){
+                                        $('#'+String(ii)).css("display","none")
+                                    }
+                                }
+
+                            }
+                        }
+
+                })
+
+    
+        })
+
+    </script>
+</body>
+
+</html>
