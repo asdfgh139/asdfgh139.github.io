@@ -124,6 +124,10 @@
                     }
 
                 }
+
+                if($("#0").css("display")=="none"){alert("红方胜")}
+                else if($("#16").css("display")=="none"){alert("黑方胜")}
+                else{return}
             })
             $(".back").click(function () {
            
@@ -132,10 +136,10 @@
                
                 $("#"+history[md].id).css("left",history[md].l*100+50+"px")
                 $("#"+history[md].id).css("top",history[md].t*100+50+"px")
-                console.log(history.length)
+    
                 for(i in p_x){
-                    if(chesses[history[md].id].l==p_x[i] & chesses[history[md].id].t==p_y[i]){
-                    $("#"+i).css("dispaly","block")
+                    if(p_x[history[md].id]==p_x[i] & p_y[history[md].id]==p_y[i]){
+                    $("#"+i).css("display","block")
                     }
                 }
                 history.pop()
