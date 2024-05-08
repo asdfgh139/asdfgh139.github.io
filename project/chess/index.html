@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div class="game">
+        <img class="chess_box" src="images/desk.png" alt="err">
+        <div class="chess_enum" id="100" style="display: none;"></div>
+        <div class="back">悔棋一步</div>
+
+    </div>
+
+
+    <script>
+
+        $(function () {
+            var game = document.querySelector('.game')
+            var chess_enum = document.querySelector('.chess_enum')
+
+
+            var chesses = []
+            var kinds = [0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 6,
+                0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 6, 6, 6]
+            p_x = [4, 3, 5, 2, 6, 1, 7, 0, 8, 1, 7, 0, 2, 4, 6, 8, 4, 3, 5, 2, 6, 1, 7, 0, 8, 1, 7, 0, 2, 4, 6, 8]
+            p_y = [9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 6, 6, 6, 6, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3, 3, 3, 3, 3]
+            var history = [{id:0,l:4,t:9},]
+
+
+
+
+
+
+            var chesses = []
+            for (i in kinds) {
+                var chess_en = {
+                    id: i,
+                    kind: kinds[i],
+                    x: -100 * i,
+                    y: -Math.trunc(i / 16) * 100,
+                    l: p_x[i] * 100 + 50,
+                    t: p_y[i] * 100 + 50,
+                    life: 1,
+                    status: 0
+                }
+
+                chesses.push(chess_en)
+                var chess = chess_enum.cloneNode(true)
+                chess.className = "chess_enum"
+                chess.id = i
+                game.appendChild(chess)
+
+                $(chess).css('background-position-x', chesses[kinds[i]].x)
+                $(chess).css('background-position-y', chesses[i].y)
+                $(chess).css('left', String(chesses[i].l) + 'px')
+                $(chess).css('top', String(chesses[i].t) + 'px')
+                $(chess).css('display', 'block')
+
+                $(chess).click(function (e) {
+                    sid = e.target.id
+                   
+                    
+                     
+                        
+                    for (ii in chesses) {
+                        if (chesses[ii].status == 1) { return }
+                    }
+                    if((Number(history[history.length-1].id)<=15 & Number(sid)>=16) | Number((history[history.length-1].id)>=16 & Number(sid)<=15)){
+                        console.log(666666666666666)
+                    setTimeout(function () {
+                        chesses[sid].status = 1
+                    }, 100)}
+                    else{
+                        return
+                    }
+
+
+                    
+                    
+
+                })
+
+            }
+
+            $(document.body).click(function (e) {
+                if (e.pageX <= 920) {
+                    for (i in chesses) {
+                        if (chesses[i].status == 1) {
+
+                            chesses[i].status = 0
+                            let m_x = Math.trunc((e.pageX - 100 + 50) / 100)
+                            let m_y = Math.trunc((e.pageY - 100 + 50) / 100)
+
+                            let t_x = m_x * 100 + 100 - 50
+                            let t_y = m_y * 100 + 100 - 50
+
+                            $('#' + String(i)).css("left", String(t_x) + "px")
+                            $('#' + String(i)).css("top", String(t_y) + "px")
+                           
+                            let history_son = {
+                                id: i,
+                                l: p_x[i],
+                                t: p_y[i],
+                            }
+                            history.push(history_son)
+                            p_x[i] = m_x
+                            p_y[i] = m_y
+                            for (ii in p_x) {
+                                if (p_x[ii] == m_x & p_y[ii] == m_y & ii != i) {
+
+                                    $('#' + String(ii)).css("display", "none")
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+                if($("#0").css("display")=="none"){alert("红方胜")}
+                else if($("#16").css("display")=="none"){alert("黑方胜")}
+                else{return}
+            })
+            $(".back").click(function () {
+           
+                let md = history.length - 1
+                if(md>=0){
+               
+                $("#"+history[md].id).css("left",history[md].l*100+50+"px")
+                $("#"+history[md].id).css("top",history[md].t*100+50+"px")
+    
+                for(i in p_x){
+                    if(p_x[history[md].id]==p_x[i] & p_y[history[md].id]==p_y[i]){
+                    $("#"+i).css("display","block")
+                    }
+                }
+                history.pop()
+              
+                }
+            })
+
+
+        })
+
+    </script>
+</body>
+
+</html>
